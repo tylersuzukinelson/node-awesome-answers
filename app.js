@@ -15,5 +15,9 @@ app.get("/", function(request, response) {
   response.render("index");
 });
 
+app.get("/questions/new", function(req, res) {
+  res.render("questions/new");
+});
+
 console.log("Server has started. Listening on Port 5000.");
 app.listen(5000); // Start the Server
