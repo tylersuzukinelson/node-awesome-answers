@@ -1,18 +1,24 @@
-var express = require("express");
-var app = express();
-var layouts = require("express-layout");
-var jade = require("jade");
-var app = express();
+var express = require("express"),
+    layouts = require("express-layout"),
+    jade = require("jade"),
+    bodyParser = require("body-parser"),
+    mongoose = require("mongoose");
 
-app.engine("jade", jade.__express);
-app.set("view engine", "jade");
+var app = express();
 
 // Middleware
 app.use(express.static("public")); // where to store the static files
 app.use(layouts());
+app.use(bodyParser());
+
+app.engine("jade", jade.__express);
+app.set("view engine", "jade");
 app.set("layout", "app_layout");
 
-questions_controller = require('./controllers/questions');
+// DB
+mongoose.connect('mongodb://localhost/awesome_answers');
+
+var questions_controller = require('./controllers/questions');
 questions_controller(app);
 
 app.get("/", function(request, response) {

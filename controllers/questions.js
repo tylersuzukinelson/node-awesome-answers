@@ -3,7 +3,7 @@ module.exports = function(app) {
     res.render("questions/new");
   });
 
-  app.post('/questions', function() {
-    
+  app.post('/questions', function(req, res) {
+    res.end(req.body.title);
   });
 }
