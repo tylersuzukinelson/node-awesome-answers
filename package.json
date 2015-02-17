@@ -4,5 +4,7 @@
   "description": "Awesome Answers in Node.js",
   "author": "Tyler Suzuki Nelson",
   "main": "app.js",
-  "dependencies": {}
+  "dependencies": {
+    "express": "^4.11.2"
+  }
 }
