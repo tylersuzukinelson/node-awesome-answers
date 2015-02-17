@@ -32,4 +32,24 @@ module.exports = function(app) {
       }
     });
   });
+
+  app.delete('/questions/:id', function(req, res){
+    Question.findById(req.params.id, function(error, question) {
+      if (!question) {
+        res.render('404', { status: 404 });
+      } else {
+        if (!error) {
+          question.remove(function(err) {
+            if (!err) {
+              res.redirect('/');
+            } else {
+              res.render('500', { status: 500 });
+            }
+          });
+        } else {
+          res.render('500', { status: 500 });
+        }
+      }
+    });
+  });
 }

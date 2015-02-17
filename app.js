@@ -2,6 +2,7 @@ var express = require("express"),
     layouts = require("express-layout"),
     jade = require("jade"),
     bodyParser = require("body-parser"),
+    methodOverride = require("method-override");
     mongoose = require("mongoose");
 
 var app = express();
@@ -10,6 +11,7 @@ var app = express();
 app.use(express.static("public")); // where to store the static files
 app.use(layouts());
 app.use(bodyParser());
+app.use(methodOverride("_method"));
 
 app.engine("jade", jade.__express);
 app.set("view engine", "jade");
