@@ -5,6 +5,7 @@
   "author": "Tyler Suzuki Nelson",
   "main": "app.js",
   "dependencies": {
-    "express": "^4.11.2"
+    "express": "^4.11.2",
+    "jade": "^1.9.2"
   }
 }
