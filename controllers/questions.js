@@ -12,9 +12,23 @@ module.exports = function(app) {
     });
     question.save(function(error, the_question) {
       if (error) {
-        res.render('/questions/new');
+        res.render('questions/new');
       } else {
-        res.redirect('/questions/' + the_question.id)
+        res.redirect('/questions/' + the_question.id);
+      }
+    });
+  });
+
+  app.get('/questions/:id', function(req, res) {
+    Question.findById(req.params.id, function(error, question) {
+      if (!question) {
+        res.render('404', { status: 404 });
+      } else {
+        if (!error) {
+          res.render('questions/show', { question: question });
+        } else {
+          res.render('500', { status: 500 });
+        }
       }
     });
   });
