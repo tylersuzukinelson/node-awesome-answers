@@ -7,6 +7,7 @@
   "dependencies": {
     "express": "^4.11.2",
     "express-layout": "^0.1.0",
-    "jade": "^1.9.2"
+    "jade": "^1.9.2",
+    "nodemon": "^1.3.7"
   }
 }
